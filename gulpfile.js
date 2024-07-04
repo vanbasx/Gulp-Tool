@@ -16,19 +16,6 @@ global.app = {
 	plugins: plugins
 }
 
-gulp.task('printVbDev', (done) => {
-	console.log("\x1b[36m%s\x1b[0m","                                                                                                       \n" +
-            "    [][]            [][]  |][][][][]           |[][][][]]]\\      |][][][][][]  [][]            [][]    \n" +
-            "    \\[][]          [][]/  |][]    [][]         |][][][][[][]]    |][][][][][]  \\[][]          [][]/    \n" +
-            "     \\[][]        [][]/   |][]     [][]        |][]      \\][]]   |][]           \\[][]        [][]/     \n" +
-            "      \\[][]      [][]/    |][][][][][]         |][]       <[][|  |][][][][][]    \\[][]      [][]/      \n" +
-            "       \\[][]    [][]/     |][][][]][][]        |][]       <[][|  |][][][][][]     \\[][]    [][]/       \n" +
-            "        \\[][]  [][]/      |][]      [][]       |][]      /][]]   |][]              \\[][]  [][]/        \n" +
-            "         \\[][\\/][]/       |][]      [][]       |][][][][[][]]    |][][][][][]       \\[][\\/][]/         \n" +
-            "          \\][][][/        |][][][][][]         |[][][][]]]/      |][][][][][]        \\][][][/          \n");
-	done();
- });
-
 // Импорт задач
 import { reset } from "./config/gulp-tasks/reset.js";
 import { html } from "./config/gulp-tasks/html.js";
@@ -61,7 +48,7 @@ export { ftp }
 export { zip }
 
 // Построение сценариев выполнения задач
-const development = gulp.series(devTasks, 'printVbDev');
+const development = gulp.series(devTasks);
 const build = gulp.series(buildTasks);
 const deployFTP = gulp.series(buildTasks, ftp);
 const deployZIP = gulp.series(buildTasks, zip);
